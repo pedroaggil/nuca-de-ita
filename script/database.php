@@ -2,7 +2,6 @@
     include 'config.php';
 
     // Connecting database with PDO method
-    function Connecting() {
         // Variables of conecting in database
             $host = 'mysql:host=localhost';
             $dbname = ''; // Name of database
@@ -16,12 +15,11 @@
         } catch(PDOException $e) {
             echo 'ERROR: ' . $e->getMessage();
         }
-    }
 
     // Drop table
     function dropTable($table) {
         $drop = 'DROP TABLE '. $table;
-        $pdo->query($drop);
+        $GLOBALS['pdo']->query($drop);
     }
     
     /* CRUD: Select */
@@ -33,7 +31,7 @@
             } else {
                 $src = 'SELECT * FROM '. $table;
             }
-            $pdo->query($src);
+            $GLOBALS['pdo']->query($src);
         }
 
         // Select column name from table
@@ -43,7 +41,7 @@
             } else {
                 $src = 'SELECT '. $column .' FROM '. $table;
             }
-            $pdo->query($src);
+            $GLOBALS['pdo']->query($src);
         }
 
         // Select all from table where clause
@@ -53,7 +51,7 @@
             } else {
                 $src = 'SELECT * FROM '. $table .' WHERE '. $condition;
             }
-            $pdo->query($src);
+            $GLOBALS['pdo']->query($src);
         }
 
         // Select column name from table
@@ -63,7 +61,7 @@
             } else {
                 $src = 'SELECT '. $column .' FROM '. $table .' WHERE '. $condition;
             }
-            $pdo->query($src);
+            $GLOBALS['pdo']->query($src);
         }
 
     /* CRUD: Delete */
@@ -71,12 +69,17 @@
         // Delete from table where
         function Delete($table, $condition) {
             $del = 'DELETE FROM '. $table .' WHERE '. $condition;
-            $pdo->query($del);
+            $GLOBALS['pdo']->query($del);
         }
 
         // Delete all from table
         function deleteAll($table) {
             $del = 'DELETE FROM '. $table;
-            $pdo->query($del);
+            $GLOBALS['pdo']->query($del);
         }
+
+    /* CRUD: General commands */
+    function MySQL_Execute($command) {
+        $GLOBALS['pdo']->query($command);
+    }
 ?>
