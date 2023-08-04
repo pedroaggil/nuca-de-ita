@@ -3,24 +3,33 @@
 
     // Connecting database with PDO method
         // Variables of conecting in database
-            $host = 'mysql:host=localhost';
+            $host = 'mysql:host=localhost'; // Host of database
+
             $dbname = ''; // Name of database
             $username = ''; // Credentials: database username
             $pass = ''; // Credentials: database password
-        $conn = $host .';dbname='. $dbname;
 
-        try {
-            $pdo = new PDO($conn, $username, $pass);
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch(PDOException $e) {
-            echo 'ERROR: ' . $e->getMessage();
-        }
+            $conn = $host .';dbname='. $dbname;
+
+    try {
+        $pdo = new PDO($conn, $username, $pass);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch(PDOException $e) {
+        echo 'ERROR: ' . $e->getMessage();
+    }
 
     // Drop table
     function dropTable($table) {
         $drop = 'DROP TABLE '. $table;
         $GLOBALS['pdo']->query($drop);
     }
+
+    /* CRUD: General commands */
+
+        // Recommended: CRUD insert and update commands
+        function MySQL_Execute($command) {
+            $GLOBALS['pdo']->query($command);
+        }
     
     /* CRUD: Select */
 
@@ -77,9 +86,4 @@
             $del = 'DELETE FROM '. $table;
             $GLOBALS['pdo']->query($del);
         }
-
-    /* CRUD: General commands */
-    function MySQL_Execute($command) {
-        $GLOBALS['pdo']->query($command);
-    }
 ?>
