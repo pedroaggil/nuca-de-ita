@@ -4,7 +4,7 @@ Plataforma web do coletivo independente / projeto social "Núcleo de Cidadania d
 
 O website está voltado para promover o coletivo entre a população do município (Itanhaém, da baixada santista de SP/Brasil), divulgar informações de sua atividade, apresentar o projeto, apresentar os mobilizadores e formar mais um canal de comunicação entre si e a juventude com o qual atua.
 
-###
+##
 
 O projeto foi desenvolvido usando *PHP* (PHP: Hypertext Preprocessor), *JS* (JavaScript), *HTML* (Hypertext Markup Language), *CSS* (Cascading Style Sheets) and *MySQL* (Structured Query Language), além da biblioteca *jQuery* do *JS*.
 
