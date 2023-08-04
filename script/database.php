@@ -21,14 +21,14 @@
     // Drop table
     function dropTable($table) {
         $drop = 'DROP TABLE '. $table;
-        $GLOBALS['pdo']->query($drop);
+        return $GLOBALS['pdo']->query($drop);
     }
 
     /* CRUD: General commands */
 
         // Recommended: CRUD insert and update commands
         function MySQL_Execute($command) {
-            $GLOBALS['pdo']->query($command);
+            return $GLOBALS['pdo']->query($command);
         }
     
     /* CRUD: Select */
@@ -40,7 +40,7 @@
             } else {
                 $src = 'SELECT * FROM '. $table;
             }
-            $GLOBALS['pdo']->query($src);
+            return $GLOBALS['pdo']->query($src);
         }
 
         // Select column name from table
@@ -50,7 +50,7 @@
             } else {
                 $src = 'SELECT '. $column .' FROM '. $table;
             }
-            $GLOBALS['pdo']->query($src);
+            return $GLOBALS['pdo']->query($src);
         }
 
         // Select all from table where clause
@@ -60,7 +60,7 @@
             } else {
                 $src = 'SELECT * FROM '. $table .' WHERE '. $condition;
             }
-            $GLOBALS['pdo']->query($src);
+            return $GLOBALS['pdo']->query($src);
         }
 
         // Select column name from table
@@ -70,7 +70,7 @@
             } else {
                 $src = 'SELECT '. $column .' FROM '. $table .' WHERE '. $condition;
             }
-            $GLOBALS['pdo']->query($src);
+            return $GLOBALS['pdo']->query($src);
         }
 
     /* CRUD: Delete */
@@ -78,12 +78,12 @@
         // Delete from table where
         function Delete($table, $condition) {
             $del = 'DELETE FROM '. $table .' WHERE '. $condition;
-            $GLOBALS['pdo']->query($del);
+            return $GLOBALS['pdo']->query($del);
         }
 
         // Delete all from table
         function deleteAll($table) {
             $del = 'DELETE FROM '. $table;
-            $GLOBALS['pdo']->query($del);
+            return $GLOBALS['pdo']->query($del);
         }
 ?>
